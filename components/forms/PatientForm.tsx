@@ -42,7 +42,24 @@ const PatientForm = () => {
           <h1 className="header">Hi there 👋</h1>
           <p className="text-dark-">Schedule your appointment.</p>
         </section>
-        <CustomFormField fieldType={FormFieldType.INPUT} control={form.control} name="name" label="Full name" placeHolder="John Doe" iconSrc="/assets/icons/user.svg" iconAlt="user" />
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="name"
+          label="Full name"
+          placeHolder="John Doe"
+          iconSrc="/assets/icons/user.svg"
+          iconAlt="user"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="email"
+          label="Email"
+          placeHolder="john@doe.com"
+          iconSrc="/assets/icons/email.svg"
+          iconAlt="email"
+        />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
