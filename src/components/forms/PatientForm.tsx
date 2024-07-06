@@ -3,11 +3,11 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form } from "@/components/ui/form"
+import { Form } from "@/src/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
-import { UserFormValidationSchema } from "@/lib/validation"
+import { UserFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
 
 
