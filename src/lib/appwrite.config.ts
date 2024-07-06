@@ -1,5 +1,4 @@
-import { appwriteEnv } from "@/src/env/appwrite";
-import { serverEnv } from "@/src/env/server";
+import { env } from "@/src/env";
 import * as sdk from "node-appwrite";
 
 export const {
@@ -9,10 +8,10 @@ export const {
   PATIENT_COLLECTION_ID,
   DOCTOR_COLLECTION_ID,
   APPOINTMENT_COLLECTION_ID,
-  NEXT_PUBLIC_BUCKET_ID,
-} = appwriteEnv;
+  BUCKET_ID,
+  PUBLIC_ENDPOINT: ENDPOINT
+} = env;
 
-const { NEXT_PUBLIC_ENDPOINT: ENDPOINT } = serverEnv;
 
 const client = new sdk.Client();
 
