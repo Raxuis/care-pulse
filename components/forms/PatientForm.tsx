@@ -5,8 +5,18 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from "@/components/ui/button"
 import { Form } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
 import CustomFormField from "../CustomFormField"
+
+
+export enum FormFieldType {
+  INPUT = "input",
+  CHECKBOX = "checkbox",
+  TEXTAREA = "textarea",
+  PHONE_INPUT = "phoneInput",
+  DATE_PICKER = "datePicker",
+  SELECT = "select",
+  SKELETON = "skeleton",
+}
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -32,7 +42,7 @@ const PatientForm = () => {
           <h1 className="header">Hi there 👋</h1>
           <p className="text-dark-">Schedule your appointment.</p>
         </section>
-        <CustomFormField control={form.control} />
+        <CustomFormField fieldType={FormFieldType.INPUT} control={form.control} name="name" label="Full name" placeHolder="John Doe" iconSrc="/assets/icons/user.svg" iconAlt="user" />
         <Button type="submit">Submit</Button>
       </form>
     </Form>
