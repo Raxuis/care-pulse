@@ -9,6 +9,7 @@ import SubmitButton from "../SubmitButton"
 import { useState } from "react"
 import { UserFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
+import { createUser } from "@/src/lib/actions/patient.actions"
 
 
 export enum FormFieldType {
@@ -36,11 +37,11 @@ const PatientForm = () => {
   async function onSubmit({ name, email, phone }: z.infer<typeof UserFormValidationSchema>) {
     setIsLoading(true)
     try {
-      // const userDatas = { name, email, phone }
-      // const user = await createUser(userDatas);
-      // if (user) {
-      //   router.push(`/patients/${user.$id}/register`)
-      // }
+      const userDatas = { name, email, phone }
+      const user = await createUser(userDatas);
+      if (user) {
+        router.push(`/patients/${user.$id}/register`)
+      }
     } catch (error) {
       console.error(error)
     }
