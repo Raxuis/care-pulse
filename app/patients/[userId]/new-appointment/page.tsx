@@ -1,3 +1,4 @@
+import AppointmentForm from '@/src/components/forms/AppointmentForm'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -15,7 +16,7 @@ const NewAppointment = () => {
             className="mb-12 h-10 w-fit"
           />
 
-          {/* <AppointmentForm /> */}
+          <AppointmentForm />
 
           <p className="justify-items-end text-dark-600 xl:text-left">
             © 2024 CarePulse
