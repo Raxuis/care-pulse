@@ -1,7 +1,7 @@
 export const GENDER_OPTIONS = [
-  "Male",
-  "Female",
-  "Other",
+  "male",
+  "female",
+  "other",
 ]
 
 export const DOCTORS = [
