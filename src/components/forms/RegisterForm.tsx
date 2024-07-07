@@ -11,9 +11,11 @@ import { UserFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/src/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
-import { GENDER_OPTIONS } from "@/src/constants"
+import { DOCTORS, GENDER_OPTIONS } from "@/src/constants"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
+import Image from "next/image"
+import { SelectItem } from "../ui/select"
 
 
 
@@ -160,6 +162,21 @@ const RegisterForm = ({ user }: { user: User }) => {
             <p className="sub-header">Medical Information</p>
           </div>
         </section>
+        <CustomFormField
+          fieldType={FormFieldType.SELECT}
+          control={form.control}
+          name="primaryPhysician"
+          label="Primary Physician"
+          placeHolder="Select a Physician">
+          {DOCTORS.map((doctor) => (
+            <SelectItem key={doctor.name} value={doctor.name}>
+              <div className="flex cursor-pointer items-center gap-2">
+                <Image src={doctor.image} alt={doctor.name} width={32} height={32} className="rounded-full border border-dark-500" />
+                <p>{doctor.name}</p>
+              </div>
+            </SelectItem>
+          ))}
+        </CustomFormField>
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
