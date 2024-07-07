@@ -16,6 +16,7 @@ import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import Image from "next/image"
 import { SelectItem } from "../ui/select"
+import FileUploader from "../FileUploader"
 
 
 
@@ -230,22 +231,38 @@ const RegisterForm = ({ user }: { user: User }) => {
             <p className="sub-header">Identification and Verification</p>
           </div>
         </section>
-        <div className="flex flex-col gap-6 xl:flex-row">
-          <CustomFormField
-            fieldType={FormFieldType.SELECT}
-            control={form.control}
-            name="identificationType"
-            label="Identification Type"
-            placeHolder="Select an Identification Type">
-            {IDENTIFICATION_TYPES.map((type) => (
-              <SelectItem key={type} value={type}>
-                <div className="flex cursor-pointer items-center gap-2">
-                  {type}
-                </div>
-              </SelectItem>
-            ))}
-          </CustomFormField>
-        </div>
+        <CustomFormField
+          fieldType={FormFieldType.SELECT}
+          control={form.control}
+          name="identificationType"
+          label="Identification Type"
+          placeHolder="Select an Identification Type">
+          {IDENTIFICATION_TYPES.map((type) => (
+            <SelectItem key={type} value={type}>
+              <div className="flex cursor-pointer items-center gap-2">
+                {type}
+              </div>
+            </SelectItem>
+          ))}
+        </CustomFormField>
+        <CustomFormField
+          fieldType={FormFieldType.INPUT}
+          control={form.control}
+          name="identificationNumber"
+          label="Identification Number"
+          placeHolder="123456789"
+        />
+        <CustomFormField
+          fieldType={FormFieldType.SKELETON}
+          control={form.control}
+          name="identificationDocument"
+          label="Scanned Copy of Identification Document"
+          renderSkeleton={(field) => (
+            <FormControl>
+              <FileUploader files={field.value} onChange={field.onChange} />
+            </FormControl>
+          )}
+        />
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
