@@ -16,6 +16,7 @@ import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import Image from "next/image"
 import { SelectItem } from "../ui/select"
 import FileUploader from "../FileUploader"
+import { registerPatient } from "@/src/lib/actions/patient.actions"
 
 
 
