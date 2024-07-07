@@ -7,11 +7,11 @@ import { Form, FormControl } from "@/src/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
-import { UserFormValidationSchema } from "@/src/lib/validation"
+import { PatientFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/src/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
-import { DOCTORS, GENDER_OPTIONS, IDENTIFICATION_TYPES } from "@/src/constants"
+import { DOCTORS, GENDER_OPTIONS, IDENTIFICATION_TYPES, PATIENT_FORM_DEFAULT_VALUES } from "@/src/constants"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import Image from "next/image"
@@ -24,16 +24,17 @@ import FileUploader from "../FileUploader"
 const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false)
-  const form = useForm<z.infer<typeof UserFormValidationSchema>>({
-    resolver: zodResolver(UserFormValidationSchema),
+  const form = useForm<z.infer<typeof PatientFormValidationSchema>>({
+    resolver: zodResolver(PatientFormValidationSchema),
     defaultValues: {
+      ...PATIENT_FORM_DEFAULT_VALUES,
       name: "",
       email: "",
       phone: ""
     },
   })
 
-  const onSubmit = async (values: z.infer<typeof UserFormValidationSchema>) => {
+  const onSubmit = async (values: z.infer<typeof PatientFormValidationSchema>) => {
     setIsLoading(true);
 
     try {
