@@ -9,7 +9,6 @@ import SubmitButton from "../SubmitButton"
 import { useState } from "react"
 import { PatientFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
-import { createUser } from "@/src/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
 import { DOCTORS, GENDER_OPTIONS, IDENTIFICATION_TYPES, PATIENT_FORM_DEFAULT_VALUES } from "@/src/constants"
 import { Label } from "../ui/label"
@@ -37,18 +36,26 @@ const RegisterForm = ({ user }: { user: User }) => {
   const onSubmit = async (values: z.infer<typeof PatientFormValidationSchema>) => {
     setIsLoading(true);
 
+    let formData;
+
+    if (values.identificationDocument && values.identificationDocument.length > 0) {
+      const blobFile = new Blob([values.identificationDocument[0]], { type: values.identificationDocument[0].type });
+      formData = new FormData();
+      formData.append('blobFile', blobFile);
+      formData.append('fileName', values.identificationDocument[0].name);
+    }
+
     try {
-      const user = {
-        name: values.name,
-        email: values.email,
-        phone: values.phone,
-      };
-
-      const newUser = await createUser(user);
-
-      if (newUser) {
-        router.push(`/patients/${newUser.$id}/register`);
+      const patientData = {
+        ...values,
+        userId: user.$id,
+        birthDate: new Date(values.birthDate),
+        identificationDocument: formData
       }
+
+      const patient = await registerPatient(patientData);
+
+      if (patient) router.push(`/patient/${user.$id}/new-appointment`);
     } catch (error) {
       console.log(error);
     }
