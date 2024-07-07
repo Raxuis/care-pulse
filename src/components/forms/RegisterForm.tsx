@@ -11,7 +11,7 @@ import { UserFormValidationSchema } from "@/src/lib/validation"
 import { useRouter } from "next/navigation"
 import { createUser } from "@/src/lib/actions/patient.actions"
 import { FormFieldType } from "./PatientForm"
-import { DOCTORS, GENDER_OPTIONS } from "@/src/constants"
+import { DOCTORS, GENDER_OPTIONS, IDENTIFICATION_TYPES } from "@/src/constants"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import Image from "next/image"
@@ -208,6 +208,43 @@ const RegisterForm = ({ user }: { user: User }) => {
             label="Current Medication (Optional)"
             placeHolder="Aspirin, Paracetamol"
           />
+        </div>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            fieldType={FormFieldType.TEXTAREA}
+            control={form.control}
+            name="familyMedicalHistory"
+            label="Family Medical History"
+            placeHolder="Mother had diabetes, Father had hypertension"
+          />
+          <CustomFormField
+            fieldType={FormFieldType.TEXTAREA}
+            control={form.control}
+            name="pastMedicalHistory"
+            label="Past Medical History"
+            placeHolder="Hypertension, Diabetes, Asthma"
+          />
+        </div>
+        <section className="space-y-6">
+          <div className="mb-9 space-y-1">
+            <p className="sub-header">Identification and Verification</p>
+          </div>
+        </section>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <CustomFormField
+            fieldType={FormFieldType.SELECT}
+            control={form.control}
+            name="identificationType"
+            label="Identification Type"
+            placeHolder="Select an Identification Type">
+            {IDENTIFICATION_TYPES.map((type) => (
+              <SelectItem key={type} value={type}>
+                <div className="flex cursor-pointer items-center gap-2">
+                  {type}
+                </div>
+              </SelectItem>
+            ))}
+          </CustomFormField>
         </div>
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
