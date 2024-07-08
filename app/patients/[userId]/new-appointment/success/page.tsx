@@ -38,7 +38,13 @@ const Success = async ({ params: { userId }, searchParams }: SearchParamProps) =
         <section className='request-details'>
           <p>Requested Appointment Details</p>
           <div className='flex gap-3 items-center'>
-            {/* <Image  */}
+            <Image
+              src={doctor?.image!}
+              alt='doctor'
+              width={100}
+              height={100}
+              className='size-6'
+            />
           </div>
         </section>
       </div>
