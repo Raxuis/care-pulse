@@ -3,7 +3,6 @@ import { useState } from 'react';
 import {
   AlertDialog,
   AlertDialogAction,
-  AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogFooter,
@@ -13,19 +12,31 @@ import {
 import {
   InputOTP,
   InputOTPGroup,
-  InputOTPSeparator,
   InputOTPSlot,
 } from './ui/input-otp';
 
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { encryptKey } from '../lib/utils';
 
 
 const PassKeyModal = () => {
   const [open, setOpen] = useState(true);
   const [passKey, setPassKey] = useState('');
   const [error, setError] = useState('');
+
+  const validatePassKey = async (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    if (passKey === process.env.ADMIN_PASSKEY) {
+      const encryptedKey = encryptKey(passKey);
+
+      localStorage.setItem('encryptedKey', encryptedKey);
+      setOpen(false);
+    } else {
+      setError('Invalid passkey. Please try again.');
+    }
+  }
 
   const router = useRouter();
 
