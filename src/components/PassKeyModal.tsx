@@ -71,7 +71,7 @@ const PassKeyModal = () => {
           }
         </div>
         <AlertDialogFooter>
-          <AlertDialogAction>Enter Passkey</AlertDialogAction>
+          <AlertDialogAction onClick={(e) => validatePassKey(e)} className='shad-primary-btn w-full'>Continue</AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>
