@@ -1,8 +1,10 @@
+import DataTable from '@/src/components/table/DataTable'
 import StatCard from '@/src/components/StatCard'
 import { getRecentAppointments } from '@/src/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import columns from '@/src/components/table/columns'
 
 const Admin = async () => {
   const appointments = await getRecentAppointments();
@@ -47,6 +49,9 @@ const Admin = async () => {
             icon="/assets/icons/cancelled.svg"
           />
         </section>
+        <DataTable
+          data={appointments.documents}
+          columns={columns} />
       </main>
     </div>
   )
