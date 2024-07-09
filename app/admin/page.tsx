@@ -6,20 +6,8 @@ import Link from 'next/link'
 import React from 'react'
 import { Payment, columns } from '@/components/table/columns'
 
-async function getData(): Promise<Payment[]> {
-  return [
-    {
-      id: "728ed52f",
-      amount: 100,
-      status: "pending",
-      email: "m@example.com",
-    },
-    // ...
-  ]
-}
 
 const Admin = async () => {
-  const data = await getData();
   const appointments = await getRecentAppointments();
 
   return (
@@ -63,7 +51,7 @@ const Admin = async () => {
           />
         </section>
         <DataTable
-          data={data}
+          data={appointments.documents}
           columns={columns} />
       </main>
     </div>
