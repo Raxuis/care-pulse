@@ -255,14 +255,14 @@ const RegisterForm = ({ user }: { user: User }) => {
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
             name="familyMedicalHistory"
-            label="Family Medical History"
+            label="Family Medical History (Optional)"
             placeHolder="Mother had diabetes, Father had hypertension"
           />
           <CustomFormField
             fieldType={FormFieldType.TEXTAREA}
             control={form.control}
             name="pastMedicalHistory"
-            label="Past Medical History"
+            label="Past Medical History (Optional)"
             placeHolder="Hypertension, Diabetes, Asthma"
           />
         </div>
