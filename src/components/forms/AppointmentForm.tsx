@@ -13,7 +13,7 @@ import { FormFieldType } from "./PatientForm"
 import { SelectItem } from "../ui/select"
 import Image from "next/image"
 import { DOCTORS } from "@/src/constants"
-import { createAppointment } from "@/src/lib/actions/appointment.action"
+import { createAppointment } from "@/src/lib/actions/appointment.actions"
 import { Appointment } from "@/src/types/appwrites.types"
 
 
