@@ -167,7 +167,7 @@ export const AppointmentForm = ({
                 control={form.control}
                 name="reason"
                 label="Appointment reason"
-                placeHolder="Annual montly check-up"
+                placeHolder="Annual monthly check-up"
                 disabled={type === "schedule"}
               />
 
@@ -175,7 +175,7 @@ export const AppointmentForm = ({
                 fieldType={FormFieldType.TEXTAREA}
                 control={form.control}
                 name="note"
-                label="Comments/notes"
+                label="Comments/Notes (optional)"
                 placeHolder="Prefer afternoon appointments, if possible"
                 disabled={type === "schedule"}
               />
