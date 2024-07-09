@@ -6,7 +6,7 @@ import Image from "next/image";
 import { DOCTORS } from "@/constants";
 import { formatDateTime } from "@/lib/utils";
 
-import AppointmentModal from "../AppointmentModal";
+import { AppointmentModal } from "../AppointmentModal";
 import StatusBadge from "../StatusBadge";
 import { Appointment } from "@/types/appwrites.types";
 
