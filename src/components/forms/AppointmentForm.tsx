@@ -3,18 +3,18 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form } from "@/src/components/ui/form"
+import { Form } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { Dispatch, SetStateAction, useState } from "react"
-import { getAppointmentSchema } from "@/src/lib/validation"
+import { getAppointmentSchema } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { FormFieldType } from "./PatientForm"
 import { SelectItem } from "../ui/select"
 import Image from "next/image"
-import { DOCTORS } from "@/src/constants"
-import { createAppointment } from "@/src/lib/actions/appointment.actions"
-import { Appointment } from "@/src/types/appwrites.types"
+import { DOCTORS } from "@/constants"
+import { createAppointment } from "@/lib/actions/appointment.actions"
+import { Appointment } from "@/types/appwrites.types"
 
 
 

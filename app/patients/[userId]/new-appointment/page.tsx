@@ -1,7 +1,6 @@
-import AppointmentForm from '@/src/components/forms/AppointmentForm'
-import { getPatient } from '@/src/lib/actions/patient.actions'
+import AppointmentForm from '@/components/forms/AppointmentForm'
+import { getPatient } from '@/lib/actions/patient.actions'
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 
 const NewAppointment = async ({ params: { userId } }: SearchParamProps) => {

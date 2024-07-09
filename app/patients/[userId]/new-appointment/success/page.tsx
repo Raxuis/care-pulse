@@ -1,7 +1,7 @@
-import { Button } from '@/src/components/ui/button';
-import { DOCTORS } from '@/src/constants';
-import { getAppointment } from '@/src/lib/actions/appointment.actions';
-import { formatDateTime } from '@/src/lib/utils';
+import { Button } from '@/components/ui/button';
+import { DOCTORS } from '@/constants';
+import { getAppointment } from '@/lib/actions/appointment.actions';
+import { formatDateTime } from '@/lib/utils';
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'

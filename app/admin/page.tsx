@@ -1,12 +1,25 @@
-import DataTable from '@/src/components/table/DataTable'
-import StatCard from '@/src/components/StatCard'
-import { getRecentAppointments } from '@/src/lib/actions/appointment.actions'
+import { DataTable } from '@/components/table/DataTable'
+import StatCard from '@/components/StatCard'
+import { getRecentAppointments } from '@/lib/actions/appointment.actions'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import columns from '@/src/components/table/columns'
+import { Payment, columns } from '@/components/table/columns'
+
+async function getData(): Promise<Payment[]> {
+  return [
+    {
+      id: "728ed52f",
+      amount: 100,
+      status: "pending",
+      email: "m@example.com",
+    },
+    // ...
+  ]
+}
 
 const Admin = async () => {
+  const data = await getData();
   const appointments = await getRecentAppointments();
 
   return (
@@ -50,7 +63,7 @@ const Admin = async () => {
           />
         </section>
         <DataTable
-          data={appointments.documents}
+          data={data}
           columns={columns} />
       </main>
     </div>

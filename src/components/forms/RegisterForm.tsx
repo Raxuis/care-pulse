@@ -3,11 +3,11 @@
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormControl } from "@/src/components/ui/form"
+import { Form, FormControl } from "@/components/ui/form"
 import CustomFormField from "../CustomFormField"
 import SubmitButton from "../SubmitButton"
 import { useState } from "react"
-import { PatientFormValidationSchema } from "@/src/lib/validation"
+import { PatientFormValidationSchema } from "@/lib/validation"
 import { useRouter } from "next/navigation"
 import { FormFieldType } from "./PatientForm"
 import {
@@ -15,13 +15,13 @@ import {
   GENDER_OPTIONS,
   IDENTIFICATION_TYPES,
   PATIENT_FORM_DEFAULT_VALUES
-} from "@/src/constants"
+} from "@/constants"
 import { Label } from "../ui/label"
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group"
 import Image from "next/image"
 import { SelectItem } from "../ui/select"
 import FileUploader from "../FileUploader"
-import { registerPatient } from "@/src/lib/actions/patient.actions"
+import { registerPatient } from "@/lib/actions/patient.actions"
 
 
 
