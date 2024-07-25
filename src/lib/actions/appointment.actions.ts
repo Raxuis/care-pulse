@@ -84,11 +84,11 @@ export const updateAppointment = async ({ appointmentId, userId, appointment, ty
     if (!updatedAppointment) {
       throw new Error("Appointment not found");
     }
-    // TODO: SMS Notification
+
     const smsMessage = `
     Hi, it's CarePulse. 
     ${type === 'schedule'
-        ? `Your appointment has been scheduled for ${formatDateTime(appointment.schedule!)}`
+        ? `Your appointment has been scheduled for ${formatDateTime(appointment.schedule!).dateTime} with Dr. ${appointment.primaryPhysician}`
         : `We regret to inform you that your appointment has been cancelled for the following reason : ${appointment.cancellationReason}`}`;
 
     await sendSMS(userId, smsMessage);
