@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img src="https://i.ibb.co/BjHzj2c/carepulse-banner.png" alt="Care Pulse" />
+  <img src="https://i.ibb.co/m50cRQj/carepulse-banner-min.png" alt="Care Pulse" />
 &#xa0;
 
 </div>
