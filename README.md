@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center" id="top"> 
+  <img src="https://i.ibb.co/BjHzj2c/carepulse-banner.png" alt="Care Pulse" />
+&#xa0;
 
-## Getting Started
+</div>
 
-First, run the development server:
+<p align="center">
+  <img alt="Github top language" src="https://img.shields.io/github/languages/top/Raxuis/care-pulse?color=56BEB8">
+
+  <img alt="Github language count" src="https://img.shields.io/github/languages/count/Raxuis/care-pulse?color=56BEB8">
+
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/Raxuis/care-pulse?color=56BEB8">
+
+  <img alt="License" src="https://img.shields.io/github/license/Raxuis/care-pulse?color=56BEB8">
+</p>
+
+<p align="center">
+  <a href="#dart-about">About</a> &#xa0; | &#xa0; 
+  <a href="#sparkles-features">Features</a> &#xa0; | &#xa0;
+  <a href="#rocket-technologies">Technologies</a> &#xa0; | &#xa0;
+  <a href="#white_check_mark-requirements">Requirements</a> &#xa0; | &#xa0;
+  <a href="#checkered_flag-starting">Starting</a> &#xa0; | &#xa0;
+  <a href="#memo-license">License</a> &#xa0; | &#xa0;
+  <a href="https://github.com/Raxuis" target="_blank">Author</a>
+</p>
+
+<br>
+
+## :dart: About
+
+A SaaS to help people book medical appointements.
+
+## :sparkles: Features
+
+:heavy_check_mark: Book appointements\
+:heavy_check_mark: Manage appointements\
+:heavy_check_mark: Manage patients\
+:heavy_check_mark: Manage doctors\
+:heavy_check_mark: Manage medical documents\
+:heavy_check_mark: Manage appointements history\
+:heavy_check_mark: Manage appointements notes\
+:heavy_check_mark: Manage appointements photos\
+:heavy_check_mark: Manage appointements videos\
+:heavy_check_mark: Manage appointements documents\
+:heavy_check_mark: Manage appointements files\
+:heavy_check_mark: Manage appointements tasks\
+:heavy_check_mark: Manage appointements reminders\
+:heavy_check_mark: Manage appointements notifications\
+:heavy_check_mark: Manage appointements reminders\
+:heavy_check_mark: Manage appointements notifications
+
+## :rocket: Technologies
+
+The following tools were used in this project:
+
+- [Sentry](https://sentry.io/)
+- [Vercel](https://vercel.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Appwrite](https://appwrite.io/)
+- [Twilio](https://twilio.com/)
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+
+## :white_check_mark: Requirements
+
+Before starting :checkered_flag:, you need to have [Git](https://git-scm.com) and [Node](https://nodejs.org/en/) installed.
+
+## :checkered_flag: Starting
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Clone this project
+$ git clone https://github.com/Raxuis/care-pulse
+
+# Access
+$ cd care-pulse
+
+# Install dependencies
+$ npm
+
+# Run the project
+$ npm run dev
+
+# The server will initialize in the <http://localhost:3000>
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## :memo: License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Made with :heart: by <a href="https://github.com/Raxuis" target="_blank">Raphaël</a>
 
-## Learn More
+&#xa0;
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<a href="#top">Back to top</a>
