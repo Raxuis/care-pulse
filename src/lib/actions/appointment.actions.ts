@@ -4,6 +4,7 @@ import { APPOINTMENT_COLLECTION_ID, DATABASE_ID, databases, messaging } from "..
 import { parseStringify } from "../utils";
 import { revalidatePath } from "next/cache";
 import { Appointment } from "@/types/appwrites.types";
+import { formatDateTime } from "@/lib/utils";
 
 export const createAppointment = async (
   appointment: CreateAppointmentParams
@@ -84,6 +85,13 @@ export const updateAppointment = async ({ appointmentId, userId, appointment, ty
       throw new Error("Appointment not found");
     }
     // TODO: SMS Notification
+    const smsMessage = `
+    Hi, it's CarePulse. 
+    ${type === 'schedule'
+        ? `Your appointment has been scheduled for ${formatDateTime(appointment.schedule!)}`
+        : `We regret to inform you that your appointment has been cancelled for the following reason : ${appointment.cancellationReason}`}`;
+
+    await sendSMS(userId, smsMessage);
 
     revalidatePath('/admin');
     return parseStringify(updatedAppointment);
