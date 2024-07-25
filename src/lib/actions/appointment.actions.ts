@@ -1,6 +1,6 @@
 "use server";
 import { ID, Query } from "node-appwrite";
-import { APPOINTMENT_COLLECTION_ID, DATABASE_ID, databases } from "../appwrite.config";
+import { APPOINTMENT_COLLECTION_ID, DATABASE_ID, databases, messaging } from "../appwrite.config";
 import { parseStringify } from "../utils";
 import { revalidatePath } from "next/cache";
 import { Appointment } from "@/types/appwrites.types";
@@ -83,11 +83,25 @@ export const updateAppointment = async ({ appointmentId, userId, appointment, ty
     if (!updatedAppointment) {
       throw new Error("Appointment not found");
     }
-    //TODO: SMS Notification
+    // TODO: SMS Notification
 
     revalidatePath('/admin');
     return parseStringify(updatedAppointment);
   } catch (error) {
     console.error("An error occurred while updating the appointment:", error);
+  }
+}
+
+export const sendSMS = async (userId: string, content: string) => {
+  try {
+    const message = await messaging.createSms(
+      ID.unique(),
+      content,
+      [],
+      [userId]
+    )
+    return parseStringify(message);
+  } catch (error) {
+    console.error("An error occurred while sending SMS:", error);
   }
 }
